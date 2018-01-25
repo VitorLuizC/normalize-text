@@ -1,0 +1,41 @@
+{
+  "name": "normalize-text",
+  "version": "0.1.0",
+  "description": "Provides a simple API to normalize diacritics, whitespaces, merge and a composition of them. [ 'Olá, \\n', 'Como   vai você?' ] => 'ola, como vai voce?'",
+  "module": "dist/normalize-text.es.js",
+  "unpkg": "dist/normalize-text.js",
+  "main": "dist/normalize-text.cjs.js",
+  "cdn": "dist/normalize-text.js",
+  "scripts": {
+    "test": "npm run build && ava --no-cache",
+    "build": "bili src/index.js --banner --formats cjs,es,umd,umd-min"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitorLuizC/normalize-text.git"
+  },
+  "keywords": [
+    "normalize-text",
+    "normalize",
+    "diacritics",
+    "whitespaces",
+    "string",
+    "functional-programming."
+  ],
+  "author": "Vitor Cavalcanti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VitorLuizC/normalize-text/issues"
+  },
+  "homepage": "https://github.com/VitorLuizC/normalize-text#readme",
+  "devDependencies": {
+    "ava": "^0.24.0",
+    "bili": "^2.1.0"
+  },
+  "dependencies": {
+    "uncouple": "^0.2.0"
+  }
+}
