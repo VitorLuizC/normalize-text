@@ -37,7 +37,7 @@ export const normalizeDiacritics = compose(
  * @example ```js
  * ([ 'Olá, \n', 'Vitor  LUIz Cavalcanti' ]) => 'ola, vitor luiz cavalcanti'
  * ```
- * @param {string} value
+ * @param {(string|Array.<string>)} value
  * @returns {string}
  */
 export default compose(

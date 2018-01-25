@@ -1,6 +1,6 @@
 {
   "name": "normalize-text",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Provides a simple API to normalize diacritics, whitespaces, merge and a composition of them. [ 'Olá, \\n', 'Como   vai você?' ] => 'ola, como vai voce?'",
   "module": "dist/normalize-text.es.js",
   "unpkg": "dist/normalize-text.js",
