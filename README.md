@@ -1,5 +1,7 @@
 # Normalize Text
 
+[![Build Status][ci-status-badge]][ci-status]
+
 Provides an API with useful normalization functions.
 
 ## Getting Started
@@ -50,3 +52,5 @@ Released under MIT license. You can see it [here][license].
 
 <!-- Links -->
 [license]: ./LICENSE
+[ci-status]: https://travis-ci.org/VitorLuizC/cullender
+[ci-status-badge]: https://travis-ci.org/VitorLuizC/cullender.svg?branch=master
