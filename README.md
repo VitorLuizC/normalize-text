@@ -52,5 +52,5 @@ Released under MIT license. You can see it [here][license].
 
 <!-- Links -->
 [license]: ./LICENSE
-[ci-status]: https://travis-ci.org/VitorLuizC/cullender
-[ci-status-badge]: https://travis-ci.org/VitorLuizC/cullender.svg?branch=master
+[ci-status]: https://travis-ci.org/VitorLuizC/normalize-text
+[ci-status-badge]: https://travis-ci.org/VitorLuizC/normalize-text.svg?branch=master
