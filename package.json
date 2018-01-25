@@ -8,7 +8,8 @@
   "cdn": "dist/normalize-text.js",
   "scripts": {
     "test": "npm run build && ava --no-cache",
-    "build": "bili src/index.js --banner --formats cjs,es,umd,umd-min"
+    "build": "bili src/index.js --banner --formats cjs,es,umd,umd-min",
+    "prepare": "npm test"
   },
   "files": [
     "dist"
