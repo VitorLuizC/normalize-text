@@ -1,5 +1,5 @@
 import test from 'ava';
-import normalizeText, { normalizeWhitespaces, normalizeDiacritics } from '../'
+import normalizeText, { normalizeWhitespaces, normalizeDiacritics, normalizeParagraph } from '../'
 
 test('normalizeWhitespaces -> Normalizes string whitespaces', (context) => {
   context.is(
@@ -27,5 +27,12 @@ test('normalizeText -> Merge text and compose other API functions', (context) =>
   context.is(
     normalizeText(['     Olá, \n', 'Tudo bem     com você\t?']),
     'ola, tudo bem com voce ?'
+  )
+})
+
+test('normalizeParagraph -> normalizes a string into a paragraph', (context) => {
+  context.is(
+    normalizeParagraph('era uma vez no mundo encantado'),
+    'Era uma vez no mundo encantado.'
   )
 })

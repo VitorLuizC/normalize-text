@@ -2,7 +2,7 @@ import compose from './compose';
 import uncouple from 'uncouple';
 
 const { join } = uncouple(Array);
-const { normalize, replace, trim, toLowerCase: lowercase } = uncouple(String);
+const { normalize, replace, trim, toLowerCase: lowercase, toUpperCase, indexOf } = uncouple(String);
 
 const WHITESPACE = ' ';
 
@@ -30,6 +30,20 @@ export const normalizeWhitespaces = compose(
 export const normalizeDiacritics = compose(
   (value) => replace(value, /[\u0080-\uF8FF]/g, ''),
   (value) => normalize(value, 'NFKD')
+);
+
+/**
+ * Normalize paragraph.
+ * @example ```js
+ * ('era uma vez no mundo encantado') => 'Era um vez no mundo encantado.'
+ * ```
+ * @param {string} value
+ * @returns {string}
+ */
+export const normalizeParagraph = compose(
+  normalizeWhitespaces,
+  (value) => replace( value, value[0], toUpperCase(value[0]) ),
+  (value) => value[ value.length-1 ] === '.' ? value : value+"."
 );
 
 /**
