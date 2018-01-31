@@ -32,7 +32,7 @@ test('normalizeText -> Merge text and compose other API functions', (context) =>
 
 test('normalizeParagraph -> normalizes a string into a paragraph', (context) => {
   context.is(
-    normalizeParagraph('era uma vez no mundo encantado'),
+    normalizeParagraph('  era uma vez no mundo  encantado'),
     'Era uma vez no mundo encantado.'
   )
 })

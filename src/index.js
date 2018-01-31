@@ -2,7 +2,7 @@ import compose from './compose';
 import uncouple from 'uncouple';
 
 const { join } = uncouple(Array);
-const { normalize, replace, trim, toLowerCase: lowercase, toUpperCase, indexOf } = uncouple(String);
+const { normalize, replace, trim, toLowerCase: lowercase, toUpperCase: upper, indexOf } = uncouple(String);
 
 const WHITESPACE = ' ';
 
@@ -41,9 +41,9 @@ export const normalizeDiacritics = compose(
  * @returns {string}
  */
 export const normalizeParagraph = compose(
-  normalizeWhitespaces,
-  (value) => replace( value, value[0], toUpperCase(value[0]) ),
-  (value) => value[ value.length-1 ] === '.' ? value : value+"."
+  (value) => replace(value, value[0], upper(value[0])),
+  (value) => value[value.length - 1] === '.' ? value : value + '.',
+  normalizeWhitespaces
 );
 
 /**
