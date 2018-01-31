@@ -2,7 +2,14 @@ import compose from './compose';
 import uncouple from 'uncouple';
 
 const { join } = uncouple(Array);
-const { normalize, replace, trim, toLowerCase: lowercase, toUpperCase: upper, indexOf } = uncouple(String);
+const {
+  normalize,
+  replace,
+  trim,
+  toLowerCase: lower,
+  toUpperCase: upper,
+  indexOf
+} = uncouple(String);
 
 const WHITESPACE = ' ';
 
@@ -55,7 +62,7 @@ export const normalizeParagraph = compose(
  * @returns {string}
  */
 export default compose(
-  (value) => lowercase(value),
+  (value) => lower(value),
   normalizeWhitespaces,
   normalizeDiacritics,
   (values) => Array.isArray(values) ? join(values, WHITESPACE) : values

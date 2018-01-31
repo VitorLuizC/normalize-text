@@ -46,6 +46,14 @@ Normalizes character accents and diacritics.
 normalizeDiacritics('Olá, você aí!') === 'Ola, voce ai!'
 ```
 
+### `normalizeParagraph: (string) => string`
+
+Normalize whitespaces, coloca ponto final
+
+```js
+normalizeParagraph('era uma vez no mundo encantando ') === 'Era uma vez no mundo encantado.'
+```
+
 ## License
 
 Released under MIT license. You can see it [here][license].
