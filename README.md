@@ -2,7 +2,7 @@
 
 [![Build Status][ci-status-badge]][ci-status]
 
-Provides an API with useful normalization functions.
+Provides a simple API to normalize texts, whitespaces, paragraphs & diacritics.
 
 ## Install
 
