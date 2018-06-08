@@ -4,55 +4,82 @@
 
 Provides an API with useful normalization functions.
 
-## Getting Started
+## Install
+
+`normalize-text` is published under NPM registry, so you can install using any Node.js package manager.
 
 ```sh
-npm i normalize-text
+npm install normalize-text --save
+
+# If you're using Yarn.
+yarn add normalize-text
 ```
 
-```js
-import normalize, { normalizeWhitespaces, normalizeDiacritics } from 'normalize-text'
+## Usage
 
-const input = document.querySelector('input[name="name"]')
-const name = normalize(input.value)
+```js
+import normalize from 'normalize-text';
+
+const input = document.querySelector('input[name="name"]');
+const name = normalize(input.value);
 ```
 
 ## API
 
-### `normalize: (string|Array<string>) => string`
+- `normalize`
 
-Join arguments (when receives an `Array`), transform to lower case and normalize its whitespaces and diacritics.
+  ```ts
+  export default function normalize (values: string | Array<string>): string;
+  ```
 
-```js
-normalize([
-  '     Olá, \n',
-  'Vitor LUIz  \tcavalcanti'
-]) === 'ola, vitor luiz cavalcanti'
-```
+  Join arguments (when receives an `Array`), normalize it's whitespaces, normalize it's diacritics and transform to lower case.
 
-### `normalizeWhitespaces: (string) => string`
+  ```js
+  normalize([
+    '     Olá, \r\n',
+    'Fernanda \t MONtenegro'
+  ])
+  // => 'ola, fernanda montenegro'
+  ```
 
-Normalizes whitespaces, line-endings and tabs.
+- `normalizeWhitespaces`
 
-```js
-normalizeWhitespaces('  Vitor \nLuiz\tCavalcanti  ') === 'Vitor Luiz Cavalcanti'
-```
+  ```ts
+  export function normalizeWhitespaces (value: string): string;
+  ```
 
-### `normalizeDiacritics: (string) => string`
+  Remove spaces from start and end, transform multiple spaces into single one and every space character into whitespace character.
 
-Normalizes character accents and diacritics.
+  ```js
+  normalizeWhitespaces('  Fernanda \t Montenegro\r\n')
+  // => 'Fernanda Montenegro'
+  ```
 
-```js
-normalizeDiacritics('Olá, você aí!') === 'Ola, voce ai!'
-```
+- `normalizeDiacritics`
 
-### `normalizeParagraph: (string) => string`
+  ```ts
+  export function normalizeDiacritics (value: string): string;
+  ```
 
-Normalize whitespaces, coloca ponto final
+  Normalize diacritics removing diacritics (accents) from letters.
 
-```js
-normalizeParagraph('era uma vez no mundo encantando ') === 'Era uma vez no mundo encantado.'
-```
+  ```js
+  normalizeDiacritics('Olá, você aí!')
+  // => 'Ola, voce ai!'
+  ```
+
+- `normalizeParagraph`
+
+  ```ts
+  export function normalizeParagraph (value: string): string;
+  ```
+
+  Normalize a paragraph. Normalize it's whitespaces, transform first letter to upper case and put a dot at end.
+
+  ```js
+  normalizeParagraph('hello world, my friend\r\n')
+  // => 'Hello world, my friend.'
+  ```
 
 ## License
 

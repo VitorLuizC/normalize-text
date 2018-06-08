@@ -3,31 +3,31 @@ import uncouple from 'uncouple';
 
 const { join } = uncouple(Array);
 const {
-  normalize,
+  trim: removeTrailingWhitespaces,
   replace,
-  trim,
-  toLowerCase: lower,
-  toUpperCase: upper,
-  indexOf
+  normalize,
+  toLowerCase,
+  toUpperCase
 } = uncouple(String);
 
 const WHITESPACE = ' ';
 
 /**
- * Normalize whitespaces.
+ * Remove spaces from start and end, transform multiple spaces into single one
+ * and every space character into whitespace character.
  * @example ```js
- * ('  Vitor\n  Luiz\t  Cavalcanti   ') => 'Vitor Luiz Cavalcanti'
+ * ('  Fernanda \t Montenegro\r\n') => 'Fernanda Montenegro'
  * ```
  * @param {string} value
  * @returns {string}
  */
 export const normalizeWhitespaces = compose(
-  (value) => replace(value, /\s{2,}|\r?\n|\t/g, WHITESPACE),
-  (value) => trim(value)
+  removeTrailingWhitespaces,
+  (value) => replace(value, /\s{2,}|\s/g, WHITESPACE)
 );
 
 /**
- * Normalize diacritics.
+ * Normalize diacritics removing diacritics (accents) from letters.
  * @example ```js
  * ('Olá, você aí') => 'Ola, voce ai'
  * ```
@@ -40,29 +40,31 @@ export const normalizeDiacritics = compose(
 );
 
 /**
- * Normalize paragraph.
+ * Normalize a paragraph. Normalize it's whitespaces, transform first letter to
+ * upper case and put a dot at end.
  * @example ```js
- * ('era uma vez no mundo encantado') => 'Era um vez no mundo encantado.'
+ * ('hello world, my friend\r\n') => 'Hello world, my friend.'
  * ```
  * @param {string} value
  * @returns {string}
  */
 export const normalizeParagraph = compose(
-  (value) => replace(value, value[0], upper(value[0])),
+  (value) => replace(value, value[0], toUpperCase(value[0])),
   (value) => value[value.length - 1] === '.' ? value : value + '.',
   normalizeWhitespaces
 );
 
 /**
- * Normalize texts.
+ * Join arguments (when receives an `Array`), normalize it's whitespaces,
+ * normalize it's diacritics and transform to lower case.
  * @example ```js
- * ([ 'Olá, \n', 'Vitor  LUIz Cavalcanti' ]) => 'ola, vitor luiz cavalcanti'
+ * ([ '    Olá, \r\n', 'Fernanda \t MONtenegro' ]) => 'ola, fernanda montenegro'
  * ```
  * @param {(string|Array.<string>)} value
  * @returns {string}
  */
 export default compose(
-  (value) => lower(value),
+  toLowerCase,
   normalizeWhitespaces,
   normalizeDiacritics,
   (values) => Array.isArray(values) ? join(values, WHITESPACE) : values
