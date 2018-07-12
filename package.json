@@ -1,6 +1,6 @@
 {
   "name": "normalize-text",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Provides a simple API to normalize texts, whitespaces, paragraphs & diacritics.",
   "module": "dist/normalize-text.es.js",
   "unpkg": "dist/normalize-text.js",
@@ -8,9 +8,9 @@
   "cdn": "dist/normalize-text.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "test": "npm run build && ava --no-cache",
-    "build": "bili src/index.js --banner --formats cjs,es,umd,umd-min",
-    "prepare": "npm test"
+    "pretest": "npm run build",
+    "test": "ava --no-cache",
+    "build": "bili src/index.js --banner --formats cjs,es,umd,umd-min"
   },
   "files": [
     "dist",
