@@ -1,6 +1,6 @@
 {
   "name": "normalize-text",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Provides a simple API to normalize texts, whitespaces, paragraphs & diacritics.",
   "module": "dist/normalize-text.es.js",
   "unpkg": "dist/normalize-text.js",

@@ -95,7 +95,7 @@ export function normalizeParagraph (value: string): string;
 Normalize a name. Normalize it's whitespaces and capitalize letters.
 
 ```js
-normalizeParagraph(' fernanda \tMONTENEGRO')
+normalizeName(' fernanda \tMONTENEGRO')
 // => 'Fernanda Montenegro'
 ```
 
