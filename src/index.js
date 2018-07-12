@@ -5,12 +5,11 @@ const { join } = uncouple(Array);
 const {
   trim: removeTrailingWhitespaces,
   replace,
+  substring,
   normalize,
-  toLowerCase,
-  toUpperCase
+  toLocaleLowerCase: transformToLowerCase,
+  toLocaleUpperCase: transformToUpperCase
 } = uncouple(String);
-
-const WHITESPACE = ' ';
 
 /**
  * Remove spaces from start and end, transform multiple spaces into single one
@@ -23,7 +22,7 @@ const WHITESPACE = ' ';
  */
 export const normalizeWhitespaces = compose(
   removeTrailingWhitespaces,
-  (value) => replace(value, /\s{2,}|\s/g, WHITESPACE)
+  (value) => replace(value, /\s{2,}|\s/g, ' ')
 );
 
 /**
@@ -49,8 +48,22 @@ export const normalizeDiacritics = compose(
  * @returns {string}
  */
 export const normalizeParagraph = compose(
-  (value) => replace(value, value[0], toUpperCase(value[0])),
+  (value) => transformToUpperCase(value[0]) + substring(value, 1),
   (value) => value[value.length - 1] === '.' ? value : value + '.',
+  normalizeWhitespaces
+);
+
+/**
+ * Normalize a name. Normalize it's whitespaces and capitalize letters.
+ * @example ```js
+ * (' fernanda \tMONTENEGRO') => 'Fernanda Montenegro'
+ * ```
+ * @param {string} value
+ * @returns {string}
+ */
+export const normalizeName = compose(
+  (value) => replace(value, /^\w|\s\w/g, transformToUpperCase),
+  transformToLowerCase,
   normalizeWhitespaces
 );
 
@@ -64,8 +77,8 @@ export const normalizeParagraph = compose(
  * @returns {string}
  */
 export default compose(
-  toLowerCase,
+  transformToLowerCase,
   normalizeWhitespaces,
   normalizeDiacritics,
-  (values) => Array.isArray(values) ? join(values, WHITESPACE) : values
+  (values) => Array.isArray(values) ? join(values, ' ') : values
 );

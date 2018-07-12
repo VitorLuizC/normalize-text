@@ -1,5 +1,11 @@
 import test from 'ava';
-import normalizeText, { normalizeWhitespaces, normalizeDiacritics, normalizeParagraph } from '../'
+
+import normalizeText, {
+  normalizeName,
+  normalizeParagraph,
+  normalizeDiacritics,
+  normalizeWhitespaces
+} from '../';
 
 test('normalizeWhitespaces -> Normalizes string whitespaces', (context) => {
   context.is(
@@ -35,4 +41,9 @@ test('normalizeParagraph -> normalizes a string into a paragraph', (context) => 
     normalizeParagraph('  era uma vez no mundo  encantado'),
     'Era uma vez no mundo encantado.'
   )
+})
+
+test('normalizeName -> normalizes a string into a name', (context) => {
+  context.is(normalizeName('aloísio nunes'), 'Aloísio Nunes')
+  context.is(normalizeName('   evan  \n  you'), 'Evan You')
 })

@@ -26,60 +26,84 @@ const name = normalize(input.value);
 
 ## API
 
-- `normalize`
+### `normalize`
 
-  ```ts
-  export default function normalize (values: string | Array<string>): string;
-  ```
+Join arguments (when receives an `Array`), normalize it's whitespaces, normalize it's diacritics and transform to lower case.
 
-  Join arguments (when receives an `Array`), normalize it's whitespaces, normalize it's diacritics and transform to lower case.
+```js
+normalize([
+  '     Olá, \r\n',
+  'Fernanda \t MONtenegro'
+])
+// => 'ola, fernanda montenegro'
+```
 
-  ```js
-  normalize([
-    '     Olá, \r\n',
-    'Fernanda \t MONtenegro'
-  ])
-  // => 'ola, fernanda montenegro'
-  ```
+#### Type definition
 
-- `normalizeWhitespaces`
+```ts
+export default function normalize (values: string | string[]): string;
+```
 
-  ```ts
-  export function normalizeWhitespaces (value: string): string;
-  ```
 
-  Remove spaces from start and end, transform multiple spaces into single one and every space character into whitespace character.
+### `normalizeWhitespaces`
 
-  ```js
-  normalizeWhitespaces('  Fernanda \t Montenegro\r\n')
-  // => 'Fernanda Montenegro'
-  ```
+Remove spaces from start and end, transform multiple spaces into single one and every space character into whitespace character.
 
-- `normalizeDiacritics`
+```js
+normalizeWhitespaces('  Fernanda \t Montenegro\r\n')
+// => 'Fernanda Montenegro'
+```
 
-  ```ts
-  export function normalizeDiacritics (value: string): string;
-  ```
+#### Type definition
 
-  Normalize diacritics removing diacritics (accents) from letters.
+```ts
+export function normalizeWhitespaces (value: string): string;
+```
 
-  ```js
-  normalizeDiacritics('Olá, você aí!')
-  // => 'Ola, voce ai!'
-  ```
+### `normalizeDiacritics`
 
-- `normalizeParagraph`
+Normalize diacritics removing diacritics (accents) from letters.
 
-  ```ts
-  export function normalizeParagraph (value: string): string;
-  ```
+```js
+normalizeDiacritics('Olá, você aí!')
+// => 'Ola, voce ai!'
+```
 
-  Normalize a paragraph. Normalize it's whitespaces, transform first letter to upper case and put a dot at end.
+#### Type definition
 
-  ```js
-  normalizeParagraph('hello world, my friend\r\n')
-  // => 'Hello world, my friend.'
-  ```
+```ts
+export function normalizeDiacritics (value: string): string;
+```
+
+### `normalizeParagraph`
+
+Normalize a paragraph. Normalize it's whitespaces, transform first letter to upper case and put a dot at end.
+
+```js
+normalizeParagraph('hello world, my friend\r\n')
+// => 'Hello world, my friend.'
+```
+
+#### Type definition
+
+```ts
+export function normalizeParagraph (value: string): string;
+```
+
+### `normalizeName`
+
+Normalize a name. Normalize it's whitespaces and capitalize letters.
+
+```js
+normalizeParagraph(' fernanda \tMONTENEGRO')
+// => 'Fernanda Montenegro'
+```
+
+#### Type definition
+
+```ts
+export function normalizeName (value: string): string;
+```
 
 ## License
 

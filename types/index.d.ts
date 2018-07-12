@@ -28,6 +28,15 @@ export function normalizeDiacritics (value: string): string;
 export function normalizeParagraph (value: string): string;
 
 /**
+ * Normalize a name. Normalize it's whitespaces and capitalize letters.
+ * @example ```js
+ * (' fernanda \tMONTENEGRO') => 'Fernanda Montenegro'
+ * ```
+ * @param value
+ */
+export function normalizeName (value: string): string;
+
+/**
  * Join arguments (when receives an `Array`), normalize it's whitespaces,
  * normalize it's diacritics and transform to lower case.
  * @example ```js
