@@ -1,7 +1,7 @@
 import compose from './compose';
 import uncouple from 'uncouple';
 
-const { join } = uncouple(Array);
+const { join } = uncouple(Array.prototype);
 const {
   trim: removeTrailingWhitespaces,
   replace,
@@ -9,7 +9,7 @@ const {
   normalize,
   toLocaleLowerCase: transformToLowerCase,
   toLocaleUpperCase: transformToUpperCase
-} = uncouple(String);
+} = uncouple(String.prototype);
 
 /**
  * Remove spaces from start and end, transform multiple spaces into single one
