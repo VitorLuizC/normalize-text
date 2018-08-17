@@ -1,22 +1,22 @@
 {
   "name": "normalize-text",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Provides a simple API to normalize texts, whitespaces, paragraphs & diacritics.",
-  "module": "dist/normalize-text.es.js",
-  "unpkg": "dist/normalize-text.js",
-  "main": "dist/normalize-text.cjs.js",
   "cdn": "dist/normalize-text.js",
-  "types": "types/index.d.ts",
+  "main": "dist/normalize-text.cjs.js",
+  "types": "index.d.ts",
+  "unpkg": "dist/normalize-text.js",
+  "module": "dist/normalize-text.es.js",
+  "jsdelivr": "dist/normalize-text.js",
+  "umd:main": "dist/normalize-text.js",
   "scripts": {
     "pretest": "npm run build",
-    "test": "ava --no-cache",
-    "build": "bili src/index.js --banner --formats cjs,es,umd,umd-min"
+    "test": "ava index.spec.js --no-cache",
+    "build": "bili index.js --banner --formats cjs,es,umd"
   },
   "files": [
-    "dist",
-    "types",
-    "README.md",
-    "LICENSE"
+    "dist/",
+    "index.d.ts"
   ],
   "repository": {
     "type": "git",
@@ -42,6 +42,6 @@
     "bili": "^3.1.2"
   },
   "dependencies": {
-    "uncouple": "^0.3.1"
+    "uncouple": "^0.4.0"
   }
 }

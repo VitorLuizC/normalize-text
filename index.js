@@ -1,7 +1,10 @@
-import compose from './compose';
 import uncouple from 'uncouple';
 
-const { join } = uncouple(Array.prototype);
+const {
+  join,
+  reduceRight: reduce
+} = uncouple(Array.prototype);
+
 const {
   trim: removeTrailingWhitespaces,
   replace,
@@ -10,6 +13,14 @@ const {
   toLocaleLowerCase: transformToLowerCase,
   toLocaleUpperCase: transformToUpperCase
 } = uncouple(String.prototype);
+
+/**
+ * Compose functions into a new one (RTL).
+ * @template T, U
+ * @param  {...function(T):U} λs
+ * @returns {U}
+ */
+const compose = (...λs) => (value) => reduce(λs, (value, λ) => λ(value), value);
 
 /**
  * Remove spaces from start and end, transform multiple spaces into single one

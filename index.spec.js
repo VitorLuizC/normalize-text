@@ -5,7 +5,7 @@ import normalizeText, {
   normalizeParagraph,
   normalizeDiacritics,
   normalizeWhitespaces
-} from '../';
+} from '.';
 
 test('normalizeWhitespaces -> Normalizes string whitespaces', (context) => {
   context.is(
