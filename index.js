@@ -1,26 +1,18 @@
 import uncouple from 'uncouple';
+import { compose, identity } from './functional';
 
-const {
-  join,
-  reduceRight: reduce
-} = uncouple(Array.prototype);
+const { join } = uncouple(Array.prototype);
 
 const {
   trim: removeTrailingWhitespaces,
   replace,
   substring,
   normalize,
-  toLocaleLowerCase: transformToLowerCase,
-  toLocaleUpperCase: transformToUpperCase
+  toLowerCase,
+  toUpperCase,
+  toLocaleLowerCase: transformToLowerCase = toLowerCase,
+  toLocaleUpperCase: transformToUpperCase = toUpperCase
 } = uncouple(String.prototype);
-
-/**
- * Compose functions into a new one (RTL).
- * @template T, U
- * @param  {...function(T):U} λs
- * @returns {U}
- */
-const compose = (...λs) => (value) => reduce(λs, (value, λ) => λ(value), value);
 
 /**
  * Remove spaces from start and end, transform multiple spaces into single one
@@ -44,7 +36,7 @@ export const normalizeWhitespaces = compose(
  * @param {string} value
  * @returns {string}
  */
-export const normalizeDiacritics = compose(
+export const normalizeDiacritics = !normalize ? identity : compose(
   (value) => replace(value, /[\u0080-\uF8FF]/g, ''),
   (value) => normalize(value, 'NFKD')
 );
@@ -73,7 +65,7 @@ export const normalizeParagraph = compose(
  * @returns {string}
  */
 export const normalizeName = compose(
-  (value) => replace(value, /^\w|\s\w/g, transformToUpperCase),
+  (value) => replace(value, /^\w|\ \w/g, transformToUpperCase),
   transformToLowerCase,
   normalizeWhitespaces
 );

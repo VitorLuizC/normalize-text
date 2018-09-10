@@ -1,6 +1,6 @@
 {
   "name": "normalize-text",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Provides a simple API to normalize texts, whitespaces, paragraphs & diacritics.",
   "cdn": "dist/normalize-text.js",
   "main": "dist/normalize-text.cjs.js",
@@ -12,7 +12,7 @@
   "scripts": {
     "pretest": "npm run build",
     "test": "ava index.spec.js --no-cache",
-    "build": "bili index.js --banner --formats cjs,es,umd"
+    "build": "bili index.js --banner --formats cjs,es,umd --js buble"
   },
   "files": [
     "dist/",
