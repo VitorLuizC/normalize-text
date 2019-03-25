@@ -4,15 +4,15 @@
   "description": "Provides a simple API to normalize texts, whitespaces, paragraphs & diacritics.",
   "cdn": "dist/index.umd.min.js",
   "main": "dist/index.js",
-  "types": "index.d.ts",
+  "types": "types/index.d.ts",
   "unpkg": "dist/index.umd.min.js",
   "module": "dist/index.mjs",
   "jsdelivr": "dist/index.umd.min.js",
   "umd:main": "dist/index.umd.js",
   "scripts": {
     "pretest": "npm run build",
-    "test": "ava index.spec.js --no-cache",
-    "build": "bili index.js --banner --format cjs,es,umd --minimal --module-name normalizeText"
+    "test": "ava --no-cache",
+    "build": "bili"
   },
   "files": [
     "dist/",
