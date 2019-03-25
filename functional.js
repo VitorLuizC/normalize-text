@@ -5,7 +5,7 @@ const {
   reverse,
   reduce: reduceLeft,
   reduceRight,
-} = uncouple(Array.prototype);
+} = uncouple(Array);
 
 /**
  * `Array.prototype.reduceRight` or a polyfill.

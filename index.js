@@ -1,7 +1,7 @@
 import uncouple from 'uncouple';
 import { compose, identity } from './functional';
 
-const { join } = uncouple(Array.prototype);
+const { join } = uncouple(Array);
 
 const {
   trim: removeTrailingWhitespaces,
@@ -12,7 +12,7 @@ const {
   toUpperCase,
   toLocaleLowerCase: transformToLowerCase = toLowerCase,
   toLocaleUpperCase: transformToUpperCase = toUpperCase
-} = uncouple(String.prototype);
+} = uncouple(String);
 
 /**
  * Remove spaces from start and end, transform multiple spaces into single one
