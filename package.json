@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "types": "types/index.d.ts",
   "unpkg": "dist/index.umd.min.js",
-  "module": "dist/index.mjs",
+  "module": "dist/index.esm.js",
   "jsdelivr": "dist/index.umd.min.js",
   "umd:main": "dist/index.umd.js",
   "scripts": {
