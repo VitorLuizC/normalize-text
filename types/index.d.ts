@@ -6,7 +6,7 @@
  * ```
  * @param value
  */
-export function normalizeWhitespaces (value: string): string;
+export function normalizeWhitespaces(value: string): string;
 
 /**
  * Normalize diacritics removing diacritics (accents) from letters.
@@ -15,7 +15,7 @@ export function normalizeWhitespaces (value: string): string;
  * ```
  * @param value
  */
-export function normalizeDiacritics (value: string): string;
+export function normalizeDiacritics(value: string): string;
 
 /**
  * Normalize a paragraph. Normalize it's whitespaces, transform first letter to
@@ -25,7 +25,7 @@ export function normalizeDiacritics (value: string): string;
  * ```
  * @param value
  */
-export function normalizeParagraph (value: string): string;
+export function normalizeParagraph(value: string): string;
 
 /**
  * Normalize a name. Normalize it's whitespaces and capitalize letters.
@@ -34,7 +34,7 @@ export function normalizeParagraph (value: string): string;
  * ```
  * @param value
  */
-export function normalizeName (value: string): string;
+export function normalizeName(value: string): string;
 
 /**
  * Join arguments (when receives an `Array`), normalize it's whitespaces,
@@ -44,4 +44,4 @@ export function normalizeName (value: string): string;
  * ```
  * @param values
  */
-export default function normalize (values: string | Array<string>): string;
+export default function normalize(values: string | Array<string>): string;

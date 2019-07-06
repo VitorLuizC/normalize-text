@@ -1,19 +1,21 @@
-import uncouple from 'uncouple';
+import uncouple from "uncouple";
 
 const {
   slice: shallowCloneArray,
   reverse,
   reduce: reduceLeft,
-  reduceRight,
+  reduceRight
 } = uncouple(Array);
 
 /**
  * `Array.prototype.reduceRight` or a polyfill.
  */
-const reduce = reduceRight || ((value, λ, initial) => {
-  const items = reverse(shallowCloneArray(value));
-  return reduceLeft(items, λ, initial);
-});
+const reduce =
+  reduceRight ||
+  ((value, λ, initial) => {
+    const items = reverse(shallowCloneArray(value));
+    return reduceLeft(items, λ, initial);
+  });
 
 /**
  * Compose functions into a new one (RTL).
@@ -21,7 +23,8 @@ const reduce = reduceRight || ((value, λ, initial) => {
  * @param  {...function(T):U} λs
  * @returns {U}
  */
-export const compose = (...λs) => (value) => reduce(λs, (value, λ) => λ(value), value);
+export const compose = (...λs) => value =>
+  reduce(λs, (value, λ) => λ(value), value);
 
 /**
  * Returns received value.
@@ -29,4 +32,4 @@ export const compose = (...λs) => (value) => reduce(λs, (value, λ) => λ(valu
  * @returns {T}
  * @template T
  */
-export const identity = (value) => value;
+export const identity = value => value;

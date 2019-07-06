@@ -1,5 +1,5 @@
-import uncouple from 'uncouple';
-import { compose, identity } from './functional';
+import uncouple from "uncouple";
+import { compose, identity } from "./functional";
 
 const { join } = uncouple(Array);
 
@@ -25,7 +25,7 @@ const {
  */
 export const normalizeWhitespaces = compose(
   removeTrailingWhitespaces,
-  (value) => replace(value, /\s{2,}|\s/g, ' ')
+  value => replace(value, /\s{2,}|\s/g, " ")
 );
 
 /**
@@ -36,10 +36,12 @@ export const normalizeWhitespaces = compose(
  * @param {string} value
  * @returns {string}
  */
-export const normalizeDiacritics = !normalize ? identity : compose(
-  (value) => replace(value, /[\u0080-\uF8FF]/g, ''),
-  (value) => normalize(value, 'NFKD')
-);
+export const normalizeDiacritics = !normalize
+  ? identity
+  : compose(
+      value => replace(value, /[\u0080-\uF8FF]/g, ""),
+      value => normalize(value, "NFKD")
+    );
 
 /**
  * Normalize a paragraph. Normalize it's whitespaces, transform first letter to
@@ -51,8 +53,8 @@ export const normalizeDiacritics = !normalize ? identity : compose(
  * @returns {string}
  */
 export const normalizeParagraph = compose(
-  (value) => transformToUpperCase(value[0]) + substring(value, 1),
-  (value) => value[value.length - 1] === '.' ? value : value + '.',
+  value => transformToUpperCase(value[0]) + substring(value, 1),
+  value => (value[value.length - 1] === "." ? value : value + "."),
   normalizeWhitespaces
 );
 
@@ -65,7 +67,7 @@ export const normalizeParagraph = compose(
  * @returns {string}
  */
 export const normalizeName = compose(
-  (value) => replace(value, /^\w|\ \w/g, transformToUpperCase),
+  value => replace(value, /^\w|\ \w/g, transformToUpperCase),
   transformToLowerCase,
   normalizeWhitespaces
 );
@@ -83,5 +85,5 @@ export default compose(
   transformToLowerCase,
   normalizeWhitespaces,
   normalizeDiacritics,
-  (values) => Array.isArray(values) ? join(values, ' ') : values
+  values => (Array.isArray(values) ? join(values, " ") : values)
 );
