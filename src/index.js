@@ -1,18 +1,12 @@
-import uncouple from "uncouple";
-import { compose, identity } from "./functional";
+const transformToLowerCase = value =>
+  String.prototype.toLocaleLowerCase
+    ? value.toLocaleLowerCase()
+    : value.toLowerCase();
 
-const { join } = uncouple(Array);
-
-const {
-  trim: removeTrailingWhitespaces,
-  replace,
-  substring,
-  normalize,
-  toLowerCase,
-  toUpperCase,
-  toLocaleLowerCase: transformToLowerCase = toLowerCase,
-  toLocaleUpperCase: transformToUpperCase = toUpperCase
-} = uncouple(String);
+const transformToUpperCase = value =>
+  String.prototype.toLocaleUpperCase
+    ? value.toLocaleUpperCase()
+    : value.toUpperCase();
 
 /**
  * Remove spaces from start and end, transform multiple spaces into single one
@@ -23,10 +17,8 @@ const {
  * @param {string} value
  * @returns {string}
  */
-export const normalizeWhitespaces = compose(
-  removeTrailingWhitespaces,
-  value => replace(value, /\s{2,}|\s/g, " ")
-);
+export const normalizeWhitespaces = value =>
+  value.replace(/\s{2,}|\s/g, " ").trim();
 
 /**
  * Normalize diacritics removing diacritics (accents) from letters.
@@ -36,12 +28,9 @@ export const normalizeWhitespaces = compose(
  * @param {string} value
  * @returns {string}
  */
-export const normalizeDiacritics = !normalize
-  ? identity
-  : compose(
-      value => replace(value, /[\u0080-\uF8FF]/g, ""),
-      value => normalize(value, "NFKD")
-    );
+
+export const normalizeDiacritics = value =>
+  value.normalize("NFKD").replace(/[\u0080-\uF8FF]/g, "");
 
 /**
  * Normalize a paragraph. Normalize it's whitespaces, transform first letter to
@@ -52,11 +41,16 @@ export const normalizeDiacritics = !normalize
  * @param {string} value
  * @returns {string}
  */
-export const normalizeParagraph = compose(
-  value => transformToUpperCase(value[0]) + substring(value, 1),
-  value => (value[value.length - 1] === "." ? value : value + "."),
-  normalizeWhitespaces
-);
+
+export const normalizeParagraph = value => {
+  const setenceWithPeriod = normalizeWhitespaces(
+    value[value.length - 1] === "." ? value : value + "."
+  );
+
+  return (
+    transformToUpperCase(setenceWithPeriod)[0] + setenceWithPeriod.substring(1)
+  );
+};
 
 /**
  * Normalize a name. Normalize it's whitespaces and capitalize letters.
@@ -66,11 +60,11 @@ export const normalizeParagraph = compose(
  * @param {string} value
  * @returns {string}
  */
-export const normalizeName = compose(
-  value => replace(value, /^\w|\ \w/g, transformToUpperCase),
-  transformToLowerCase,
-  normalizeWhitespaces
-);
+export const normalizeName = value =>
+  transformToLowerCase(normalizeWhitespaces(value)).replace(
+    /^\w|\ \w/g,
+    transformToUpperCase
+  );
 
 /**
  * Join arguments (when receives an `Array`), normalize it's whitespaces,
@@ -81,9 +75,9 @@ export const normalizeName = compose(
  * @param {(string|Array.<string>)} value
  * @returns {string}
  */
-export default compose(
-  transformToLowerCase,
-  normalizeWhitespaces,
-  normalizeDiacritics,
-  values => (Array.isArray(values) ? join(values, " ") : values)
-);
+export default values =>
+  transformToLowerCase(
+    normalizeWhitespaces(
+      normalizeDiacritics(Array.isArray(values) ? values.join(" ") : values)
+    )
+  );
