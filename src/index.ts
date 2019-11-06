@@ -1,9 +1,9 @@
-const transformToLowerCase = value =>
+const transformToLowerCase = (value: string) =>
   String.prototype.toLocaleLowerCase
     ? value.toLocaleLowerCase()
     : value.toLowerCase();
 
-const transformToUpperCase = value =>
+const transformToUpperCase = (value: string) =>
   String.prototype.toLocaleUpperCase
     ? value.toLocaleUpperCase()
     : value.toUpperCase();
@@ -17,7 +17,7 @@ const transformToUpperCase = value =>
  * @param {string} value
  * @returns {string}
  */
-export const normalizeWhitespaces = value =>
+export const normalizeWhitespaces = (value: string) =>
   value.replace(/\s{2,}|\s/g, " ").trim();
 
 /**
@@ -29,7 +29,7 @@ export const normalizeWhitespaces = value =>
  * @returns {string}
  */
 
-export const normalizeDiacritics = value =>
+export const normalizeDiacritics = (value: string) =>
   value.normalize("NFKD").replace(/[\u0080-\uF8FF]/g, "");
 
 /**
@@ -42,7 +42,7 @@ export const normalizeDiacritics = value =>
  * @returns {string}
  */
 
-export const normalizeParagraph = value => {
+export const normalizeParagraph = (value: string) => {
   const setenceWithPeriod = normalizeWhitespaces(
     value[value.length - 1] === "." ? value : value + "."
   );
@@ -60,7 +60,7 @@ export const normalizeParagraph = value => {
  * @param {string} value
  * @returns {string}
  */
-export const normalizeName = value =>
+export const normalizeName = (value: string) =>
   transformToLowerCase(normalizeWhitespaces(value)).replace(
     /^\w|\ \w/g,
     transformToUpperCase
@@ -75,7 +75,7 @@ export const normalizeName = value =>
  * @param {(string|Array.<string>)} value
  * @returns {string}
  */
-export default values =>
+export default (values: string | Array<string>) =>
   transformToLowerCase(
     normalizeWhitespaces(
       normalizeDiacritics(Array.isArray(values) ? values.join(" ") : values)
