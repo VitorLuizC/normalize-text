@@ -40,8 +40,5 @@
   "devDependencies": {
     "ava": "^2.1.0",
     "bili": "^4.8.0"
-  },
-  "dependencies": {
-    "uncouple": "^0.5.0"
   }
 }
