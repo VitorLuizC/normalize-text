@@ -11,7 +11,7 @@
   "umd:main": "dist/index.umd.js",
   "scripts": {
     "pretest": "npm run build",
-    "test": "ava --no-cache",
+    "test": "jest",
     "build": "bili"
   },
   "files": [
@@ -38,7 +38,12 @@
   },
   "homepage": "https://github.com/VitorLuizC/normalize-text#readme",
   "devDependencies": {
-    "ava": "^2.1.0",
-    "bili": "^4.8.0"
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-typescript": "^7.7.0",
+    "@types/jest": "^24.0.22",
+    "bili": "^4.8.0",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.7.2"
   }
 }
