@@ -1,6 +1,9 @@
 # Normalize Text
 
-[![Build Status][ci-status-badge]][ci-status]
+[![Build Status](https://travis-ci.org/VitorLuizC/normalize-text.svg?branch=master)](https://travis-ci.org/VitorLuizC/normalize-text)
+[![License](https://badgen.net/github/license/VitorLuizC/normalize-text)](./LICENSE)
+[![Library minified size](https://badgen.net/bundlephobia/min/normalize-text)](https://bundlephobia.com/result?p=normalize-text)
+[![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/normalize-text)](https://bundlephobia.com/result?p=normalize-text)
 
 Provides a simple API to normalize texts, whitespaces, paragraphs & diacritics.
 
@@ -103,10 +106,4 @@ export function normalizeName(value: string): string;
 
 ## License
 
-Released under MIT license. You can see it [here][license].
-
-<!-- Links -->
-
-[license]: ./LICENSE
-[ci-status]: https://travis-ci.org/VitorLuizC/normalize-text
-[ci-status-badge]: https://travis-ci.org/VitorLuizC/normalize-text.svg?branch=master
+Released under MIT license. You can see it [here](./LICENSE).
