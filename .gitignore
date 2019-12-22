@@ -7,3 +7,8 @@ node_modules/
 
 # Distribution sources.
 dist/
+
+# PNPM and NPM's lockfile.
+# We're using Yarn and it provide its own lockfile.
+package-lock.json
+pnpm-lock.yaml

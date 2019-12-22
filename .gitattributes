@@ -2,4 +2,5 @@
 * text=auto eol=lf
 
 # Ignore lockfile's diffs.
-package-lock.json -diff
+# Since version 1.0, yarn can automatically resolve merge conflicts.
+yarn.lock -diff
