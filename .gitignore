@@ -8,6 +8,9 @@ node_modules/
 # Distribution sources.
 dist/
 
+# Generated type declarations.
+types/
+
 # PNPM and NPM's lockfile.
 # We're using Yarn and it provide its own lockfile.
 package-lock.json

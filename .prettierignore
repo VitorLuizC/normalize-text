@@ -1,0 +1,8 @@
+# Node.js modules.
+node_modules/
+
+# Distribution sources.
+dist/
+
+# Generated type declarations.
+types/
