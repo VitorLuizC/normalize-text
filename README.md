@@ -21,7 +21,7 @@ yarn add normalize-text
 ## Usage
 
 ```js
-import normalize from "normalize-text";
+import normalize from 'normalize-text';
 
 const input = document.querySelector('input[name="name"]');
 const name = normalize(input.value);
@@ -34,7 +34,7 @@ const name = normalize(input.value);
 Join arguments (when receives an `Array`), normalize it's whitespaces, normalize it's diacritics and transform to lower case.
 
 ```js
-normalize(["     Olá, \r\n", "Fernanda \t MONtenegro"]);
+normalize(['     Olá, \r\n', 'Fernanda \t MONtenegro']);
 // => 'ola, fernanda montenegro'
 ```
 
@@ -49,7 +49,7 @@ export default function normalize(values: string | string[]): string;
 Remove spaces from start and end, transform multiple spaces into single one and every space character into whitespace character.
 
 ```js
-normalizeWhitespaces("  Fernanda \t Montenegro\r\n");
+normalizeWhitespaces('  Fernanda \t Montenegro\r\n');
 // => 'Fernanda Montenegro'
 ```
 
@@ -64,7 +64,7 @@ export function normalizeWhitespaces(value: string): string;
 Normalize diacritics removing diacritics (accents) from letters.
 
 ```js
-normalizeDiacritics("Olá, você aí!");
+normalizeDiacritics('Olá, você aí!');
 // => 'Ola, voce ai!'
 ```
 
@@ -79,7 +79,7 @@ export function normalizeDiacritics(value: string): string;
 Normalize a paragraph. Normalize it's whitespaces, transform first letter to upper case and put a dot at end.
 
 ```js
-normalizeParagraph("hello world, my friend\r\n");
+normalizeParagraph('hello world, my friend\r\n');
 // => 'Hello world, my friend.'
 ```
 
@@ -94,7 +94,7 @@ export function normalizeParagraph(value: string): string;
 Normalize a name. Normalize it's whitespaces and capitalize letters.
 
 ```js
-normalizeName(" fernanda \tMONTENEGRO");
+normalizeName(' fernanda \tMONTENEGRO');
 // => 'Fernanda Montenegro'
 ```
 

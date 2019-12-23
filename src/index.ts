@@ -18,7 +18,7 @@ const transformToUpperCase = (value: string) =>
  * @returns {string}
  */
 export const normalizeWhitespaces = (value: string) =>
-  value.replace(/\s{2,}|\s/g, " ").trim();
+  value.replace(/\s{2,}|\s/g, ' ').trim();
 
 /**
  * Normalize diacritics removing diacritics (accents) from letters.
@@ -30,7 +30,7 @@ export const normalizeWhitespaces = (value: string) =>
  */
 
 export const normalizeDiacritics = (value: string) =>
-  value.normalize("NFKD").replace(/[\u0080-\uF8FF]/g, "");
+  value.normalize('NFKD').replace(/[\u0080-\uF8FF]/g, '');
 
 /**
  * Normalize a paragraph. Normalize it's whitespaces, transform first letter to
@@ -44,7 +44,7 @@ export const normalizeDiacritics = (value: string) =>
 
 export const normalizeParagraph = (value: string) => {
   const setenceWithPeriod = normalizeWhitespaces(
-    value[value.length - 1] === "." ? value : value + "."
+    value[value.length - 1] === '.' ? value : value + '.'
   );
 
   return (
@@ -78,6 +78,6 @@ export const normalizeName = (value: string) =>
 export default (values: string | Array<string>) =>
   transformToLowerCase(
     normalizeWhitespaces(
-      normalizeDiacritics(Array.isArray(values) ? values.join(" ") : values)
+      normalizeDiacritics(Array.isArray(values) ? values.join(' ') : values)
     )
   );

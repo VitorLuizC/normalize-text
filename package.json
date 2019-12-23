@@ -10,8 +10,8 @@
   "jsdelivr": "dist/index.umd.min.js",
   "umd:main": "dist/index.umd.js",
   "scripts": {
-    "pretest": "npm run build",
-    "test": "jest",
+    "test": "yarn run test:lint && yarn run test:unit",
+    "test:unit": "jest",
     "test:lint": "prettier **/* --check",
     "build": "bili"
   },
@@ -39,11 +39,9 @@
   },
   "homepage": "https://github.com/VitorLuizC/normalize-text#readme",
   "devDependencies": {
-    "@babel/preset-env": "^7.7.7",
-    "@babel/preset-typescript": "^7.7.7",
     "@types/jest": "^24.0.24",
     "bili": "^4.8.1",
-    "jest": "^24.9.0",
+    "jest": "~24.8.0",
     "prettier": "^1.19.1",
     "rollup-plugin-typescript2": "^0.25.3",
     "ts-jest": "^24.2.0",
