@@ -5,7 +5,7 @@
 [![Library minified size](https://badgen.net/bundlephobia/min/normalize-text)](https://bundlephobia.com/result?p=normalize-text)
 [![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/normalize-text)](https://bundlephobia.com/result?p=normalize-text)
 
-Provides a simple API to normalize texts, whitespaces, paragraphs & diacritics.
+Provides a simple API to normalize texts, white-spaces, paragraphs & diacritics.
 
 ## Install
 
