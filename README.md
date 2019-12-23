@@ -7,6 +7,24 @@
 
 Provides a simple API to normalize texts, white-spaces, names, paragraphs & diacritics (accents).
 
+- 📦 Distributions in ESM, CommonJS, UMD and UMD _minified_ formats.
+
+- ⚡ Lightweight:
+  - It's bundled with [Rollup](https://rollupjs.org/) and [Bublé](https://buble.surge.sh/).
+  - Smaller than 0.5B (min + gzip).
+  - Supports _tree shaking_.
+
+- 🔋 Bateries included:
+  - No dependencies.
+  - Its not based on newer browser's APIs or es2015+ features.
+  - Only needs `String.prototype.normalize` polyfill for older browsers, and don't break without it.
+
+- 🏷 Safe:
+  - Type declarations for IDEs and editor's autocomplete/intellisense.
+  - Made with TypeScript as strict as possible.
+  - Unit tests with Jest.
+  - Travis CI that keeps tests running.
+
 ## Install
 
 `normalize-text` is published under NPM registry, so you can install using any Node.js package manager.
