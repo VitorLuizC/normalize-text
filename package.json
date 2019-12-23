@@ -17,7 +17,7 @@
   },
   "files": [
     "dist/",
-    "index.d.ts"
+    "types/"
   ],
   "repository": {
     "type": "git",
