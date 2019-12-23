@@ -5,7 +5,7 @@
 [![Library minified size](https://badgen.net/bundlephobia/min/normalize-text)](https://bundlephobia.com/result?p=normalize-text)
 [![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/normalize-text)](https://bundlephobia.com/result?p=normalize-text)
 
-Provides a simple API to normalize texts, white-spaces, paragraphs & diacritics.
+Provides a simple API to normalize texts, white-spaces, names, paragraphs & diacritics (accents).
 
 ## Install
 
@@ -18,90 +18,116 @@ npm install normalize-text --save
 yarn add normalize-text
 ```
 
+### Install from CDN
+
+The bundles of this module are also available on JSDelivr and UNPKG CDNs.
+
+In both you can import just the bundle you want or use default one, UMD.
+
+```html
+<!-- Using default bundle from JSDelivr -->
+<script src="https://cdn.jsdelivr.net/npm/normalize-text"></script>
+
+<!-- Using default bundle from UNPKG -->
+<script src="https://unpkg.com/normalize-text"></script>
+
+<script>
+  /**
+   * UMD bundle expose brazilian-values through `normalizeText` object.
+   */
+  normalizeText.capitalizeFirstLetter('vitor');
+  //=> "Vitor"
+</script>
+```
+
 ## Usage
 
-```js
-import normalize from 'normalize-text';
+All the functions are named exported from module.
 
-const input = document.querySelector('input[name="name"]');
-const name = normalize(input.value);
+```js
+import { normalizeText } from 'normalize-text';
+
+normalizeText([
+  'Olá\r\n',
+  '  como  está a   senhorita?'
+]);
+//=> "ola como esta a senhorita?"
 ```
 
 ## API
 
-### `normalize`
+### `capitalizeFirstLetter`
 
-Join arguments (when receives an `Array`), normalize it's whitespaces, normalize it's diacritics and transform to lower case.
-
-```js
-normalize(['     Olá, \r\n', 'Fernanda \t MONtenegro']);
-// => 'ola, fernanda montenegro'
-```
-
-#### Type definition
-
-```ts
-export default function normalize(values: string | string[]): string;
-```
-
-### `normalizeWhitespaces`
-
-Remove spaces from start and end, transform multiple spaces into single one and every space character into whitespace character.
+Capitalize first character of received text.
 
 ```js
-normalizeWhitespaces('  Fernanda \t Montenegro\r\n');
-// => 'Fernanda Montenegro'
-```
-
-#### Type definition
-
-```ts
-export function normalizeWhitespaces(value: string): string;
+capitalizeFirstLetter('vitorLuizC');
+//=> "VitorLuizC"
 ```
 
 ### `normalizeDiacritics`
 
-Normalize diacritics removing diacritics (accents) from letters.
+If `String.prototype.normalize` is supported it normalizes diacritics by replacing them with "clean" character from received text.
+
+> It doesn't normalize special characters.
 
 ```js
-normalizeDiacritics('Olá, você aí!');
-// => 'Ola, voce ai!'
-```
+normalizeDiacritics('Olá, você aí');
+//=> 'Ola, voce ai'
 
-#### Type definition
+normalizeDiacritics('àáãâäéèêëíìîïóòõôöúùûüñçÀÁÃÂÄÉÈÊËÍÌÎÏÓÒÕÔÖÚÙÛÜÑÇ');
+//=> "aaaaaeeeeiiiiooooouuuuncAAAAAEEEEIIIIOOOOOUUUUNC"
 
-```ts
-export function normalizeDiacritics(value: string): string;
-```
-
-### `normalizeParagraph`
-
-Normalize a paragraph. Normalize it's whitespaces, transform first letter to upper case and put a dot at end.
-
-```js
-normalizeParagraph('hello world, my friend\r\n');
-// => 'Hello world, my friend.'
-```
-
-#### Type definition
-
-```ts
-export function normalizeParagraph(value: string): string;
+normalizeDiacritics('@_$><=-#!,.`\'"')
+//=> "@_$><=-#!,.`'\"";
 ```
 
 ### `normalizeName`
 
-Normalize a name. Normalize it's whitespaces and capitalize letters.
+Normalize received name by normalizing it's white-spaces and capitalizing first letter of every word but exceptions (received in lower-case).
 
 ```js
-normalizeName(' fernanda \tMONTENEGRO');
-// => 'Fernanda Montenegro'
+normalizeName(' fernanDA  MONTENEGRO');
+//=> "Fernanda Montenegro"
+
+normalizeName(' wilson da costa', ['da']);
+//=> "Wilson da Costa"
 ```
 
-#### Type definition
+### `normalizeParagraph`
 
-```ts
-export function normalizeName(value: string): string;
+Normalize a paragraph by normalizing its white-spaces, capitalizing first letter and adding a period at end.
+
+```js
+normalizeParagraph(' once upon a time');
+//=> "Once upon a time."
+
+normalizeParagraph('hello world, my friend\r\n');
+// => 'Hello world, my friend.'
+```
+
+### `normalizeText`
+
+Resolve received texts (when receives an `Array`) by normalizing its white-spaces and its diacritics and transforming to lower-case.
+
+```js
+normalizeText(' so there\'s  a  Way to NORMALIZE ');
+//=> "so there\'s a way to normalize"
+
+normalizeText(['Olá\r\n', 'como está a   senhorita?']);
+//=> "ola como esta a senhorita?"
+```
+
+### `normalizeWhiteSpaces`
+
+Normalize all white-space characters and remove trailing ones received text.
+
+```js
+normalizeWhiteSpaces(' What exactly is it?   ');
+//=> "What exactly is it?"
+
+normalizeWhiteSpaces('Hi,   how is \r\n everything  \t?');
+//=> 'Hi, how is everything ?'
 ```
 
 ## License
