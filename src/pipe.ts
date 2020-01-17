@@ -11,6 +11,7 @@
  * @param {Array.<function(*):*>} fns - Functions to be composed.
  * @returns {function(*):*}
  */
+// prettier-ignore
 const pipe: {
   <A>(): (value: A) => A;
   <A, B>(fn1: (value: A) => B): (value: A) => B;
