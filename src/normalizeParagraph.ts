@@ -1,5 +1,6 @@
 import capitalizeFirstLetter from './capitalizeFirstLetter';
 import normalizeWhiteSpaces from './normalizeWhiteSpaces';
+import pipe from './pipe';
 
 /**
  * Get the last character of received text.
@@ -7,6 +8,13 @@ import normalizeWhiteSpaces from './normalizeWhiteSpaces';
  * @returns {string}
  */
 const getLastChar = (text: string) => text.charAt(text.length - 1);
+
+/**
+ * Add a period at end of a text, if you don't already have one.
+ * @param {string} text - A `string` value.
+ */
+const addPeriodAtEnd = (text: string) =>
+  getLastChar(text) === '.' ? text : text + '.';
 
 /**
  * Normalize a paragraph by normalizing its white-spaces, capitalizing first
@@ -17,13 +25,10 @@ const getLastChar = (text: string) => text.charAt(text.length - 1);
  * @param {string} value
  * @returns {string}
  */
-const normalizeParagraph = (text: string) => {
-  const whiteSpacesNormalizedText = normalizeWhiteSpaces(text);
-  return capitalizeFirstLetter(
-    getLastChar(whiteSpacesNormalizedText) === '.'
-      ? whiteSpacesNormalizedText
-      : whiteSpacesNormalizedText + '.'
-  );
-};
+const normalizeParagraph = pipe(
+  normalizeWhiteSpaces,
+  addPeriodAtEnd,
+  capitalizeFirstLetter
+);
 
 export default normalizeParagraph;
