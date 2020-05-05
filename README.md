@@ -15,9 +15,8 @@ Provides a simple API to normalize texts, white-spaces, names, paragraphs & diac
   - Supports _tree shaking_.
 
 - 🔋 Bateries included:
-  - No dependencies.
   - Its not based on newer browser's APIs or es2015+ features.
-  - Only needs `String.prototype.normalize` polyfill for older browsers, and don't break without it.
+  - Only needs `String.prototype.normalize` polyfill for older browsers, and don't crashes without it.
 
 - 🏷 Safe:
   - Type declarations for IDEs and editor's autocomplete/intellisense.
@@ -96,7 +95,7 @@ normalizeDiacritics('Olá, você aí');
 normalizeDiacritics('àáãâäéèêëíìîïóòõôöúùûüñçÀÁÃÂÄÉÈÊËÍÌÎÏÓÒÕÔÖÚÙÛÜÑÇ');
 //=> "aaaaaeeeeiiiiooooouuuuncAAAAAEEEEIIIIOOOOOUUUUNC"
 
-normalizeDiacritics('@_$><=-#!,.`\'"')
+normalizeDiacritics('@_$><=-#!,.`\'"');
 //=> "@_$><=-#!,.`'\"";
 ```
 
