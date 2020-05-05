@@ -11,7 +11,7 @@ Provides a simple API to normalize texts, white-spaces, names, paragraphs & diac
 
 - ⚡ Lightweight:
   - It's bundled with [Rollup](https://rollupjs.org/) and [Bublé](https://buble.surge.sh/).
-  - Smaller than 0.5KB (min + gzip).
+  - Smaller than 1KB (min + gzip).
   - Supports _tree shaking_.
 
 - 🔋 Bateries included:
