@@ -28,7 +28,11 @@
     "normalize",
     "diacritics",
     "whitespaces",
+    "white-spaces",
+    "accents",
+    "text",
     "string",
+    "fp",
     "functional",
     "functional-programming"
   ],
