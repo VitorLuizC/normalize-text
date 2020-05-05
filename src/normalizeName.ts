@@ -10,6 +10,14 @@ const splitWords = (text: string) =>
   normalizeWhiteSpaces(text.toLocaleLowerCase()).split(' ');
 
 /**
+ * Capitalize word if it isn't an exception.
+ * @param {string[]} exceptions - A list of exceptions in lower-case.
+ * @returns {(word: string) => string}
+ */
+const capitalizeWordExcept = (exceptions: string[]) => (word: string) =>
+  exceptions.indexOf(word) > -1 ? word : capitalizeFirstLetter(word);
+
+/**
  * Normalize received name by normalizing it's white-spaces and capitalizing
  * first letter of every word but exceptions (received in lower-case).
  * @example
@@ -23,10 +31,6 @@ const splitWords = (text: string) =>
  * @returns {string}
  */
 const normalizeName = (name: string, exceptions: string[] = []) =>
-  splitWords(name)
-    .map(word =>
-      exceptions.indexOf(word) > -1 ? word : capitalizeFirstLetter(word)
-    )
-    .join(' ');
+  splitWords(name).map(capitalizeWordExcept(exceptions)).join(' ');
 
 export default normalizeName;
