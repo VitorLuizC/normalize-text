@@ -1,6 +1,7 @@
+import pipe from '@bitty/pipe';
+
 import normalizeDiacritics from './normalizeDiacritics';
 import normalizeWhiteSpaces from './normalizeWhiteSpaces';
-import pipe from './pipe';
 
 /**
  * Resolve one or multiple texts into a single one.

@@ -1,6 +1,7 @@
+import pipe from '@bitty/pipe';
+
 import capitalizeFirstLetter from './capitalizeFirstLetter';
 import normalizeWhiteSpaces from './normalizeWhiteSpaces';
-import pipe from './pipe';
 
 /**
  * Get the last character of received text.

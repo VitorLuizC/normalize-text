@@ -710,6 +710,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@bitty/pipe@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@bitty/pipe/-/pipe-0.0.4.tgz#2d4c6045979f3206f7dfa729fa49360d3774e8fb"
+  integrity sha512-a49IrfWL8VmSuXIrSJ4Z456qdCO/QbrXrbuyT79QOyddZm3C779cZfLFn69emntbRyAqQLivCrmLo3b9AZOB0g==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"
