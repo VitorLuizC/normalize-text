@@ -30,7 +30,7 @@ const transformToLowerCase = (text: string) => text.toLocaleLowerCase();
  * @param {string | string[]} values - A `string` or an array of `string` values.
  * @returns {string}
  */
-const normalizeText = pipe(
+const normalizeText = /*#__PURE__*/ pipe(
   resolveToText,
   normalizeDiacritics,
   normalizeWhiteSpaces,

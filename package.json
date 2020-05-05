@@ -1,6 +1,6 @@
 {
   "name": "normalize-text",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Provides a simple API to normalize texts, white-spaces, paragraphs & diacritics.",
   "sideEffects": false,
   "cdn": "dist/index.umd.min.js",

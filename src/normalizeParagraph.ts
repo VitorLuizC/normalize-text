@@ -26,7 +26,7 @@ const addPeriodAtEnd = (text: string) =>
  * @param {string} value
  * @returns {string}
  */
-const normalizeParagraph = pipe(
+const normalizeParagraph = /*#__PURE__*/ pipe(
   normalizeWhiteSpaces,
   addPeriodAtEnd,
   capitalizeFirstLetter
