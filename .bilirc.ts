@@ -6,6 +6,7 @@ const config: Config = {
   output: {
     format: ['es', 'cjs', 'umd', 'umd-min'],
     moduleName: 'normalizeText',
+    sourceMap: true,
   },
   babel: {
     minimal: true,

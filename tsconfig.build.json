@@ -5,10 +5,12 @@
     "newLine": "LF",
     "noEmitOnError": true,
     "outDir": "dist/",
+    "sourceMap": true,
 
     // Type declarations settings
     "declaration": true,
-    "declarationDir": "types/"
+    "declarationDir": "types/",
+    "declarationMap": true
   },
   "include": ["src/"],
   "exclude": ["src/**/*.spec.ts"]
