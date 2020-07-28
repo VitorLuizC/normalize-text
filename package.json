@@ -48,13 +48,13 @@
   },
   "homepage": "https://github.com/VitorLuizC/normalize-text#readme",
   "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "bili": "^4.9.4",
-    "jest": "~26.0.1",
+    "@types/jest": "^26.0.7",
+    "bili": "^5.0.5",
+    "jest": "~26.1.0",
     "prettier": "^2.0.5",
-    "rollup-plugin-typescript2": "^0.27.0",
-    "ts-jest": "^25.4.0",
-    "typescript": "^3.8.3"
+    "rollup-plugin-typescript2": "^0.27.1",
+    "ts-jest": "^26.1.4",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
     "@bitty/pipe": "^0.0.4"

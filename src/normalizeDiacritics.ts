@@ -8,7 +8,7 @@
  * @returns {string}
  */
 const normalizeDiacritics = (text: string) =>
-  String.prototype.normalize
+  !!String.prototype.normalize
     ? text.normalize('NFKD').replace(/[\u0080-\uF8FF]/g, '')
     : text;
 
