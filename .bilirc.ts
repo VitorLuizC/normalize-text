@@ -4,7 +4,7 @@ const config: Config = {
   banner: true,
   input: 'src/index.ts',
   output: {
-    format: ['es', 'cjs', 'umd', 'umd-min'],
+    format: ['esm', 'cjs', 'umd', 'umd-min'],
     moduleName: 'normalizeText',
     sourceMap: true,
   },
