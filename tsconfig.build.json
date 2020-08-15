@@ -3,15 +3,14 @@
   "compilerOptions": {
     // Build settings
     "newLine": "LF",
-    "noEmitOnError": true,
-    "outDir": "dist/",
+    "charset": "utf-8",
     "sourceMap": true,
 
     // Type declarations settings
     "declaration": true,
-    "declarationDir": "types/",
+    "declarationDir": "./types",
     "declarationMap": true
   },
-  "include": ["src/"],
-  "exclude": ["src/**/*.spec.ts"]
+  "include": ["./src"],
+  "exclude": ["./src/**/*.spec.ts"]
 }

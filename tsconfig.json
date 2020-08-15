@@ -16,6 +16,5 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true
-  },
-  "include": [".bilirc.ts", "src/"]
+  }
 }

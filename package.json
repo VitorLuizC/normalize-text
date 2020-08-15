@@ -13,8 +13,10 @@
   "scripts": {
     "test": "yarn run test:lint && yarn run test:unit",
     "test:unit": "jest",
-    "test:lint": "prettier **/* --check",
-    "build": "bili",
+    "test:lint": "prettier src/**/*.ts --check",
+    "build": "yarn run build:transpile && yarn run build:bundle",
+    "build:transpile": "tsc --project ./tsconfig.build.json",
+    "build:bundle": "rollup --config rollup.config.js",
     "prepublishOnly": "yarn run test && yarn run build"
   },
   "files": [
@@ -49,11 +51,12 @@
   },
   "homepage": "https://github.com/VitorLuizC/normalize-text#readme",
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^9.0.0",
     "@types/jest": "^26.0.7",
-    "bili": "^5.0.5",
     "jest": "~26.1.0",
     "prettier": "^2.0.5",
-    "rollup-plugin-typescript2": "^0.27.1",
+    "rollup": "^2.25.0",
+    "rollup-plugin-terser": "^7.0.0",
     "ts-jest": "^26.1.4",
     "typescript": "^3.9.7"
   },

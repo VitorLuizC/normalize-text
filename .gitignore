@@ -11,6 +11,10 @@ dist/
 # Generated type declarations.
 types/
 
+# Transpiled sources and their source-maps.
+src/**/*.js
+src/**/*.js.map
+
 # PNPM and NPM's lockfile.
 # We're using Yarn and it provide its own lockfile.
 package-lock.json
