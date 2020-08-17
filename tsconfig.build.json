@@ -2,6 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     // Build settings
+    "target": "ES5",
+    "module": "ES2020",
     "newLine": "LF",
     "charset": "utf-8",
     "sourceMap": true,
