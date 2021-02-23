@@ -9,7 +9,7 @@
  */
 const normalizeDiacritics = (text: string) =>
   !!String.prototype.normalize
-    ? text.normalize('NFKD').replace(/[\u0080-\uF8FF]/g, '')
+    ? text.normalize('NFKD').replace(/[\u0300-\u036F]/g, '')
     : text;
 
 export default normalizeDiacritics;
