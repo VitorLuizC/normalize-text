@@ -27,7 +27,7 @@ const capitalizeWordExcept = (exceptions: string[]) => (word: string) =>
  * normalizeName(' wilson da costa', ['da']);
  * //=> "Wilson da Costa"
  * @param {string} name - A `string` value.
- * @param {string} [exceptions] - A list of exceptions in lower-case.
+ * @param {string[]} [exceptions] - A list of exceptions in lower-case.
  * @returns {string}
  */
 const normalizeName = (name: string, exceptions: string[] = []) =>
