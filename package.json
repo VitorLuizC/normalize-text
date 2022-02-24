@@ -10,6 +10,16 @@
   "module": "dist/index.esm.js",
   "jsdelivr": "dist/index.umd.min.js",
   "umd:main": "dist/index.umd.js",
+  "exports": {
+    ".": [
+      {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.cjs",
+        "default": "./dist/index.js"
+      },
+      "./dist/index.js"
+    ]
+  },
   "scripts": {
     "test": "yarn run test:lint && yarn run test:transpile && yarn run test:unit",
     "test:transpile": "tsc --project ./tsconfig.test.json",

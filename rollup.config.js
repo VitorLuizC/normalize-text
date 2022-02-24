@@ -20,6 +20,14 @@ const options = [
         format: 'esm',
         file: './dist/index.esm.js',
       }),
+      getOutputOption({
+        format: 'commonjs',
+        file: './dist/index.cjs',
+      }),
+      getOutputOption({
+        format: 'esm',
+        file: './dist/index.mjs',
+      }),
     ],
   },
   {

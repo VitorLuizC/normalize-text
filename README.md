@@ -8,6 +8,7 @@
 Provides a simple API to normalize texts, white-spaces, names, paragraphs & diacritics (accents).
 
 - 📦 Distributions in ESM, CommonJS, UMD and UMD _minified_ formats.
+  - Supports NodeJS ESM and CommonJS;
 
 - ⚡ Lightweight:
   - It's bundled with [Rollup](https://rollupjs.org/) and [Bublé](https://buble.surge.sh/).
