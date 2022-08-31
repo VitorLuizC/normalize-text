@@ -2,8 +2,9 @@
 
 [![Build Status](https://travis-ci.org/VitorLuizC/normalize-text.svg?branch=master)](https://travis-ci.org/VitorLuizC/normalize-text)
 [![License](https://badgen.net/github/license/VitorLuizC/normalize-text)](./LICENSE)
-[![Library minified size](https://badgen.net/bundlephobia/min/normalize-text)](https://bundlephobia.com/result?p=normalize-text)
-[![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/normalize-text)](https://bundlephobia.com/result?p=normalize-text)
+[![Package tree-shaking](https://badgen.net/bundlephobia/tree-shaking/normalize-text)](https://bundlephobia.com/package/normalize-text)
+[![Package minified & gzipped size](https://badgen.net/bundlephobia/minzip/normalize-text)](https://bundlephobia.com/package/normalize-text)
+[![Package dependency count](https://badgen.net/bundlephobia/dependency-count/normalize-text)](https://bundlephobia.com/package/normalize-text)
 
 Provides a simple API to normalize texts, white-spaces, names, paragraphs & diacritics (accents).
 
