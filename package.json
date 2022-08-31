@@ -15,7 +15,8 @@
       {
         "import": "./dist/index.mjs",
         "require": "./dist/index.cjs",
-        "default": "./dist/index.js"
+        "default": "./dist/index.js",
+        "types": "./types/index.d.ts"
       },
       "./dist/index.js"
     ]
