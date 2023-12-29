@@ -12,4 +12,11 @@ describe('normalizeWhiteSpaces', () => {
       'Hi, how is everything ?'
     );
   });
+
+  it('Normalize white-space in string template', () => {
+    const student = { name: 'John   Doe' };
+    expect(
+      normalizeWhiteSpaces(` Hi,  ${student.name}!\n How are you doing? `)
+    ).toBe('Hi, John Doe! How are you doing?');
+  });
 });
