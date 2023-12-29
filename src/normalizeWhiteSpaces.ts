@@ -7,7 +7,7 @@
  * normalizeWhiteSpaces('Hi,   how is \r\n everything  \t?');
  * //=> 'Hi, how is everything ?'
  * ```
- * @param {string} text - A `string` value.
+ * @param {string} text - A `string` or `template string` value.
  * @returns {string}
  */
 const normalizeWhiteSpaces = (text: string) => text.replace(/\s+/g, ' ').trim();
