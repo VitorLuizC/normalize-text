@@ -19,4 +19,11 @@ describe('normalizeWhiteSpaces', () => {
       normalizeWhiteSpaces(` Hi,  ${student.name}!\n How are you doing? `)
     ).toBe('Hi, John Doe! How are you doing?');
   });
+
+  it('Support usage as tagged template', () => {
+    const temperature = 25;
+    expect(
+      normalizeWhiteSpaces`It is ${temperature}\n  degree\r outside.`
+    ).toBe('It is 25 degree outside.');
+  });
 });
