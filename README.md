@@ -147,6 +147,9 @@ normalizeWhiteSpaces(' What exactly is it?   ');
 
 normalizeWhiteSpaces('Hi,   how is \r\n everything  \t?');
 //=> 'Hi, how is everything ?'
+
+normalizeWhiteSpaces`It is ${temperature}\n  degree\r outside.  `
+//=> 'It is 25 degree outside.'
 ```
 
 ## License
