@@ -22,14 +22,14 @@
     ]
   },
   "scripts": {
-    "test": "yarn run test:lint && yarn run test:transpile && yarn run test:unit",
+    "test": "npm run test:lint && npm run test:transpile && npm run test:unit",
     "test:transpile": "tsc --project ./tsconfig.test.json",
     "test:unit": "jest \"(.+)\\.spec\\.js$\"",
     "test:lint": "prettier src/**/*.ts --check",
-    "build": "yarn run build:transpile && yarn run build:bundle",
+    "build": "npm run build:transpile && npm run build:bundle",
     "build:transpile": "tsc --project ./tsconfig.build.json",
-    "build:bundle": "rollup --config rollup.config.js",
-    "prepublishOnly": "yarn run test && yarn run build"
+    "build:bundle": "rollup --config rollup.config.mjs",
+    "prepublishOnly": "npm run test && npm run build"
   },
   "files": [
     "dist/",
@@ -63,13 +63,13 @@
   },
   "homepage": "https://github.com/VitorLuizC/normalize-text#readme",
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@types/jest": "^29.0.0",
-    "jest": "^29.0.1",
-    "prettier": "^2.7.1",
-    "rollup": "^2.78.1",
-    "rollup-plugin-terser": "^7.0.2",
-    "typescript": "^4.8.2"
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "prettier": "^3.5.3",
+    "rollup": "^4.37.0",
+    "typescript": "^5.8.2"
   },
   "dependencies": {
     "@bitty/pipe": "^0.3.0"

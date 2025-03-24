@@ -34,7 +34,7 @@ const normalizeText = /*#__PURE__*/ pipe(
   resolveToText,
   normalizeDiacritics,
   normalizeWhiteSpaces,
-  transformToLowerCase
+  transformToLowerCase,
 );
 
 export default normalizeText;

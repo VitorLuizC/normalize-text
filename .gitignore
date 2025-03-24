@@ -15,7 +15,20 @@ types/
 src/**/*.js
 src/**/*.js.map
 
-# PNPM and NPM's lockfile.
-# We're using Yarn and it provide its own lockfile.
-package-lock.json
+# NPM's shrinkwrap.
+# We're using `package-lock.json` instead.
+npm-shrinkwrap.json
+
+# Yarn's lockfile, Plug'n'Play, folder and settings.
+# We're using npm, and it provides its lockfile and settings.
+yarn.lock
+.pnp.*
+.yarn/
+.yarnrc
+.yarnrc.yaml
+
+# pnpm's lockfile, workspace definitions and hooks.
+# We're using npm, and it provides its lockfile and settings.
 pnpm-lock.yaml
+pnpm-workspace.yaml
+pnpmfile.js

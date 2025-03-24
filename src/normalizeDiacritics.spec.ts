@@ -3,7 +3,7 @@ import normalizeDiacritics from './normalizeDiacritics';
 describe('normalizeDiacritics', () => {
   it('Normalize diacritics from words', () => {
     expect(
-      normalizeDiacritics('àáãâäéèêëíìîïóòõôöúùûüñçÀÁÃÂÄÉÈÊËÍÌÎÏÓÒÕÔÖÚÙÛÜÑÇ')
+      normalizeDiacritics('àáãâäéèêëíìîïóòõôöúùûüñçÀÁÃÂÄÉÈÊËÍÌÎÏÓÒÕÔÖÚÙÛÜÑÇ'),
     ).toEqual('aaaaaeeeeiiiiooooouuuuncAAAAAEEEEIIIIOOOOOUUUUNC');
   });
 

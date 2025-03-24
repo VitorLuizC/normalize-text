@@ -29,7 +29,7 @@ const addPeriodAtEnd = (text: string) =>
 const normalizeParagraph = /*#__PURE__*/ pipe(
   normalizeWhiteSpaces,
   addPeriodAtEnd,
-  capitalizeFirstLetter
+  capitalizeFirstLetter,
 );
 
 export default normalizeParagraph;
