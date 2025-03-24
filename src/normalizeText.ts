@@ -5,11 +5,11 @@ import normalizeWhiteSpaces from './normalizeWhiteSpaces';
 
 /**
  * Resolve one or multiple texts into a single one.
- * @param {string | string[]} values - A `string` or an array of `string` values.
+ * @param {string | readonly string[]} values - A `string` or an array of `string` values.
  * @returns {string}
  */
-const resolveToText = (values: string | string[]) =>
-  Array.isArray(values) ? values.join(' ') : values;
+const resolveToText = (values: string | readonly string[]) =>
+  Array.isArray(values) ? values.join(' ') : (values as string);
 
 /**
  * Transforms a text to lower case.
@@ -27,7 +27,7 @@ const transformToLowerCase = (text: string) => text.toLocaleLowerCase();
  *
  * normalizeText(['Olá\r\n', 'como está a   senhorita?']);
  * //=> "ola como esta a senhorita?"
- * @param {string | string[]} values - A `string` or an array of `string` values.
+ * @param {string | readonly string[]} values - A `string` or an array of `string` values.
  * @returns {string}
  */
 const normalizeText = /*#__PURE__*/ pipe(
