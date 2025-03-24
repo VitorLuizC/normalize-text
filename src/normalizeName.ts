@@ -2,20 +2,19 @@ import normalizeWhiteSpaces from './normalizeWhiteSpaces';
 import capitalizeFirstLetter from './capitalizeFirstLetter';
 
 /**
- * Split text into words.
- * @param {string} text - A `string` value.
- * @returns {string[]}
- */
-const splitWords = (text: string) =>
-  normalizeWhiteSpaces(text.toLocaleLowerCase()).split(' ');
-
-/**
- * Capitalize word if it isn't an exception.
+ * @param {string} word - A `string` value.
  * @param {string[]} exceptions - A list of exceptions in lower-case.
- * @returns {(word: string) => string}
+ * @returns {(_: string, word: string) => string}
  */
-const capitalizeWordExcept = (exceptions: string[]) => (word: string) =>
-  exceptions.indexOf(word) > -1 ? word : capitalizeFirstLetter(word);
+const byNormalizedNameExceptFor =
+  (exceptions: string[]) =>
+  /**
+   * @param {string} _
+   * @param {string} word
+   * @returns {string}
+   */
+  (_: string, word: string) =>
+    exceptions.indexOf(word) > -1 ? word : capitalizeFirstLetter(word);
 
 /**
  * Normalize received name by normalizing it's white-spaces and capitalizing
@@ -31,6 +30,8 @@ const capitalizeWordExcept = (exceptions: string[]) => (word: string) =>
  * @returns {string}
  */
 const normalizeName = (name: string, exceptions: string[] = []) =>
-  splitWords(name).map(capitalizeWordExcept(exceptions)).join(' ');
+  normalizeWhiteSpaces(name)
+    .toLowerCase()
+    .replace(/([^ -]+)/g, byNormalizedNameExceptFor(exceptions));
 
 export default normalizeName;

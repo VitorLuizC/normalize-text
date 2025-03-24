@@ -7,6 +7,10 @@ describe('normalizeName', () => {
     );
   });
 
+  it("Capitalize names after and before '-' character", () => {
+    expect(normalizeName('Jane DOE-SMITH')).toEqual('Jane Doe-Smith');
+  });
+
   it('Ignore exceptions when capitalizing', () => {
     expect(normalizeName(' wilson da costa', ['da'])).toBe('Wilson da Costa');
   });
